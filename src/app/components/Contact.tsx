@@ -2,21 +2,20 @@ import { Mail, MapPin, Send } from "lucide-react";
 
 export function Contact() {
   return (
-    <section id="contact" className="py-32 px-6 lg:px-8 relative">
+    <section id="contact" className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
-          <h2 className="text-5xl lg:text-6xl mb-6">
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <h2 className="text-3xl sm:text-4xl lg:text-6xl mb-4 sm:mb-6">
             Let's Build Together
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto">
             Ready to ship your mobile app MVP? Get in touch and let's make it happen.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <div className="bg-card border border-border rounded-2xl p-8 lg:p-12">
-            <h3 className="text-2xl mb-8">Start Your Project</h3>
+        <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
+          <div className="bg-card border border-border rounded-2xl p-5 sm:p-8 lg:p-12">
+            <h3 className="text-xl sm:text-2xl mb-6 sm:mb-8">Start Your Project</h3>
             <form className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm mb-2">
@@ -25,7 +24,7 @@ export function Contact() {
                 <input
                   type="text"
                   id="name"
-                  className="w-full px-4 py-3 bg-input border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-3.5 text-base bg-input border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="Your name"
                 />
               </div>
@@ -37,7 +36,7 @@ export function Contact() {
                 <input
                   type="email"
                   id="email"
-                  className="w-full px-4 py-3 bg-input border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-3.5 text-base bg-input border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="your@email.com"
                 />
               </div>
@@ -48,7 +47,7 @@ export function Contact() {
                 </label>
                 <select
                   id="project"
-                  className="w-full px-4 py-3 bg-input border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-3.5 text-base bg-input border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                 >
                   <option>Mobile App MVP</option>
                   <option>iOS App</option>
@@ -65,14 +64,14 @@ export function Contact() {
                 <textarea
                   id="message"
                   rows={5}
-                  className="w-full px-4 py-3 bg-input border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                  className="w-full px-4 py-3.5 text-base bg-input border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary resize-none"
                   placeholder="Tell us about your project..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full px-8 py-4 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all hover:scale-105 flex items-center justify-center gap-2"
+                className="w-full min-h-12 px-8 py-4 text-base bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 active:scale-[0.98] transition-all sm:hover:scale-[1.02] flex items-center justify-center gap-2"
               >
                 Send Message
                 <Send className="w-5 h-5" />
@@ -80,9 +79,8 @@ export function Contact() {
             </form>
           </div>
 
-          {/* Contact Information */}
-          <div className="space-y-8">
-            <div className="bg-card border border-border rounded-2xl p-8">
+          <div className="space-y-4 sm:space-y-6 lg:space-y-8">
+            <div className="bg-card border border-border rounded-2xl p-5 sm:p-8">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Mail className="w-6 h-6 text-primary" />
@@ -99,7 +97,7 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="bg-card border border-border rounded-2xl p-8">
+            <div className="bg-card border border-border rounded-2xl p-5 sm:p-8">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-6 h-6 text-primary" />
@@ -116,7 +114,7 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-primary/10 via-card to-purple-600/10 rounded-2xl p-8 border border-primary/20">
+            <div className="bg-gradient-to-br from-primary/10 via-card to-purple-600/10 rounded-2xl p-5 sm:p-8 border border-primary/20">
               <h4 className="text-xl mb-4">Why Choose Us?</h4>
               <ul className="space-y-3 text-muted-foreground">
                 <li className="flex items-start gap-2">

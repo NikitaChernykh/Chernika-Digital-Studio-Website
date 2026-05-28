@@ -1,23 +1,30 @@
+import { useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import logo from "@/assets/img/logo.svg";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-b border-gray-200">
-      <nav className="max-w-7xl mx-auto px-6 lg:px-8 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center border border-gray-200">
-              {/* Placeholder for dark logo - replace with actual logo image */}
-              <span className="text-gray-900 font-bold text-xl">C</span>
-            </div>
-            <div className="font-bold text-lg tracking-tight text-gray-900">Chernika Digital</div>
-          </div>
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
 
-          {/* Desktop Navigation */}
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-b border-gray-200 supports-[padding:max(0px)]:pt-[env(safe-area-inset-top)]">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
+        <div className="flex items-center justify-between gap-4">
+          <a href="#" className="flex items-center shrink-0 min-h-11">
+            <img
+              src={logo}
+              alt="Chernika Digital"
+              className="h-8 w-auto sm:h-9 md:h-10"
+            />
+          </a>
+
           <div className="hidden md:flex items-center gap-8">
             <a href="#services" className="text-sm text-gray-700 hover:text-primary transition-colors">
               Services
@@ -27,16 +34,18 @@ export function Header() {
             </a>
             <a
               href="#contact"
-              className="px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all text-sm"
+              className="px-6 py-2.5 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all text-sm min-h-11 inline-flex items-center shadow-sm shadow-primary/25"
             >
               Contact
             </a>
           </div>
 
-          {/* Mobile menu button */}
           <button
-            className="md:hidden p-2 text-gray-900"
+            type="button"
+            className="md:hidden inline-flex items-center justify-center min-h-11 min-w-11 rounded-lg text-gray-900 active:bg-gray-100"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-expanded={mobileMenuOpen}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           >
             {mobileMenuOpen ? (
               <X className="w-6 h-6" />
@@ -46,26 +55,25 @@ export function Header() {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden pt-4 pb-2 space-y-3 border-t border-gray-200 mt-4">
+          <div className="md:hidden pt-3 pb-2 space-y-1 border-t border-gray-200 mt-3">
             <a
               href="#services"
-              className="block py-2 text-gray-700 hover:text-primary transition-colors"
+              className="block py-3 px-2 text-base text-gray-700 hover:text-primary transition-colors min-h-11"
               onClick={() => setMobileMenuOpen(false)}
             >
               Services
             </a>
             <a
               href="#projects"
-              className="block py-2 text-gray-700 hover:text-primary transition-colors"
+              className="block py-3 px-2 text-base text-gray-700 hover:text-primary transition-colors min-h-11"
               onClick={() => setMobileMenuOpen(false)}
             >
               Projects
             </a>
             <a
               href="#contact"
-              className="block px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all text-center"
+              className="block px-4 py-3 mt-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all text-center text-base min-h-11 shadow-sm shadow-primary/25"
               onClick={() => setMobileMenuOpen(false)}
             >
               Contact

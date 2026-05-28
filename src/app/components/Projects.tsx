@@ -1,117 +1,140 @@
 import { ExternalLink } from "lucide-react";
+import geoGeniusImage from "@/assets/img/portfolio/geo_genius_project.jpg";
+import geoGeniusSplash from "@/assets/img/portfolio/geo_genius_splash.png";
+import handyWatchImage from "@/assets/img/portfolio/handy_watch_project.jpg";
+import handyWatchPromo from "@/assets/img/portfolio/handy_watch_promo.png";
+import { ProjectVisual } from "./ProjectVisual";
+
+const projects = [
+  {
+    title: "GeoGenius",
+    tagline: "The best way to learn geography",
+    description:
+      "Gamified geography learning app for iOS. Learn countries and capitals through continent-based lessons with progressive advancement and a friendly companion character.",
+    image: geoGeniusImage,
+    images: [geoGeniusImage, geoGeniusSplash],
+    visual: "browser" as const,
+    tags: ["Education", "iOS", "Gamification"],
+    link: "https://geogenius.app/",
+    stats: [
+      { label: "Category", value: "Education" },
+      { label: "Platform", value: "iOS" },
+      { label: "Type", value: "Mobile App" },
+    ],
+  },
+  {
+    title: "Handy.Watch",
+    tagline: "Discover best smartwatch clock faces",
+    description:
+      "Premium clock face marketplace for Fitbit devices. Browse and discover beautiful watch faces for Versa, Versa 2, Versa 3, Sense, and Ionic models.",
+    image: handyWatchImage,
+    images: [handyWatchImage, handyWatchPromo],
+    visual: "phone" as const,
+    tags: ["Wearables", "E-commerce", "Design"],
+    link: "https://handy.watch/",
+    stats: [
+      { label: "Category", value: "Wearables" },
+      { label: "Platform", value: "Web" },
+      { label: "Type", value: "Marketplace" },
+    ],
+  },
+];
 
 export function Projects() {
-  const projects = [
-    {
-      title: "GeoGenius",
-      tagline: "The best way to learn geography",
-      description: "Gamified geography learning app for iOS. Learn countries and capitals through continent-based lessons with progressive advancement and a friendly companion character.",
-      image: "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&h=600&fit=crop&auto=format",
-      tags: ["Education", "iOS", "Gamification"],
-      link: "https://geogenius.app/",
-      stats: [
-        { label: "Category", value: "Education" },
-        { label: "Platform", value: "iOS" },
-        { label: "Type", value: "Mobile App" }
-      ]
-    },
-    {
-      title: "Handy",
-      tagline: "Discover best smartwatch clock faces",
-      description: "Premium clock face marketplace for Fitbit devices. Browse and discover beautiful watch faces for Versa, Versa 2, Versa 3, Sense, and Ionic models.",
-      image: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=800&h=600&fit=crop&auto=format",
-      tags: ["Wearables", "E-commerce", "Design"],
-      link: "https://handy.watch/",
-      stats: [
-        { label: "Category", value: "Wearables" },
-        { label: "Platform", value: "Web" },
-        { label: "Type", value: "Marketplace" }
-      ]
-    }
-  ];
-
   return (
-    <section id="projects" className="py-32 px-6 lg:px-8 relative">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
-          <h2 className="text-5xl lg:text-6xl mb-6">
-            Current Projects
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Live products we've shipped. Real apps solving real problems for real users.
+    <section id="projects" className="relative py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_20%_30%,rgba(59,130,246,0.08),transparent_50%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_80%_70%,rgba(139,92,246,0.06),transparent_50%)]" />
+
+      <div className="relative max-w-7xl mx-auto">
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <p className="text-xs sm:text-sm font-medium uppercase tracking-widest text-primary mb-3 sm:mb-4">
+            Portfolio
+          </p>
+          <h2 className="text-3xl sm:text-4xl lg:text-6xl mb-4 sm:mb-6">Current Projects</h2>
+          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto">
+            Live products we&apos;ve shipped. Real apps solving real problems for real users.
           </p>
         </div>
 
-        <div className="space-y-24">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className={`grid lg:grid-cols-2 gap-12 items-center ${
-                index % 2 === 1 ? 'lg:grid-flow-dense' : ''
-              }`}
-            >
-              <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
-                <div className="space-y-6">
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, i) => (
-                      <span
-                        key={i}
-                        className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+        <div className="space-y-10 sm:space-y-16 lg:space-y-24">
+          {projects.map((project, index) => {
+            const reversed = index % 2 === 1;
 
-                  <h3 className="text-4xl lg:text-5xl">
-                    {project.title}
-                  </h3>
-
-                  <p className="text-xl text-primary/80">
-                    {project.tagline}
-                  </p>
-
-                  <p className="text-lg text-muted-foreground leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  <div className="grid grid-cols-3 gap-6 py-6 border-t border-b border-border">
-                    {project.stats.map((stat, i) => (
-                      <div key={i}>
-                        <div className="text-sm text-muted-foreground mb-1">
-                          {stat.label}
-                        </div>
-                        <div className="font-medium">{stat.value}</div>
-                      </div>
-                    ))}
-                  </div>
-
+            return (
+              <article
+                key={project.title}
+                className="group relative rounded-2xl sm:rounded-3xl border border-white/10 bg-card/40 p-4 sm:p-6 lg:p-10 backdrop-blur-sm transition hover:border-primary/30"
+              >
+                <div
+                  className={`grid gap-8 lg:grid-cols-2 lg:gap-14 items-center ${
+                    reversed ? "lg:grid-flow-dense" : ""
+                  }`}
+                >
                   <a
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-card border border-border rounded-lg hover:border-primary transition-all hover:scale-105 group"
+                    className={`block order-1 ${reversed ? "lg:col-start-1 lg:row-start-1" : ""}`}
+                    aria-label={`View ${project.title}`}
                   >
-                    Visit Project
-                    <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </a>
-                </div>
-              </div>
-
-              <div className={index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}>
-                <div className="relative group">
-                  <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-purple-600/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-border bg-card">
-                    <img
+                    <ProjectVisual
                       src={project.image}
+                      images={project.images}
                       alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      url={project.link.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+                      variant={project.visual}
                     />
+                  </a>
+
+                  <div className={`space-y-5 sm:space-y-6 order-2 ${reversed ? "lg:col-start-2" : ""}`}>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full border border-primary/20"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div>
+                      <h3 className="text-2xl sm:text-3xl lg:text-5xl font-bold tracking-tight">
+                        {project.title}
+                      </h3>
+                      <p className="mt-2 sm:mt-3 text-lg sm:text-xl text-primary/90">{project.tagline}</p>
+                    </div>
+
+                    <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                      {project.description}
+                    </p>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 rounded-xl border border-white/10 bg-background/40 p-4 sm:p-5">
+                      {project.stats.map((stat) => (
+                        <div key={stat.label}>
+                          <div className="text-xs sm:text-sm text-muted-foreground mb-1">
+                            {stat.label}
+                          </div>
+                          <div className="font-medium text-sm sm:text-base">{stat.value}</div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex w-full sm:w-auto sm:inline-flex min-h-12 items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 active:scale-[0.98] transition-all sm:hover:gap-3"
+                    >
+                      Visit Project
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
                   </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
