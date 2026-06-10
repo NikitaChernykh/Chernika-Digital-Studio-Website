@@ -17,7 +17,7 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-b border-gray-200 supports-[padding:max(0px)]:pt-[env(safe-area-inset-top)]">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
         <div className="flex items-center justify-between gap-4">
-          <a href="#" className="flex items-center shrink-0 min-h-11">
+          <a href="/" className="flex items-center shrink-0 min-h-11">
             <img
               src={logo}
               alt="Chernika Digital"
@@ -26,14 +26,14 @@ export function Header() {
           </a>
 
           <div className="hidden md:flex items-center gap-8">
-            <a href="#services" className="text-sm text-gray-700 hover:text-primary transition-colors">
+            <a href="/#services" className="text-sm text-gray-700 hover:text-primary transition-colors">
               Services
             </a>
-            <a href="#projects" className="text-sm text-gray-700 hover:text-primary transition-colors">
+            <a href="/#projects" className="text-sm text-gray-700 hover:text-primary transition-colors">
               Projects
             </a>
             <a
-              href="#contact"
+              href="/#contact"
               className="px-6 py-2.5 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all text-sm min-h-11 inline-flex items-center shadow-sm shadow-primary/25"
             >
               Contact
@@ -58,21 +58,21 @@ export function Header() {
         {mobileMenuOpen && (
           <div className="md:hidden pt-3 pb-2 space-y-1 border-t border-gray-200 mt-3">
             <a
-              href="#services"
+              href="/#services"
               className="block py-3 px-2 text-base text-gray-700 hover:text-primary transition-colors min-h-11"
               onClick={() => setMobileMenuOpen(false)}
             >
               Services
             </a>
             <a
-              href="#projects"
+              href="/#projects"
               className="block py-3 px-2 text-base text-gray-700 hover:text-primary transition-colors min-h-11"
               onClick={() => setMobileMenuOpen(false)}
             >
               Projects
             </a>
             <a
-              href="#contact"
+              href="/#contact"
               className="block px-4 py-3 mt-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all text-center text-base min-h-11 shadow-sm shadow-primary/25"
               onClick={() => setMobileMenuOpen(false)}
             >
