@@ -3,7 +3,7 @@ import { TermsOfServiceContent } from "../components/legal/TermsOfServiceContent
 
 export function TermsPage() {
   return (
-    <LegalPageLayout title="Chernika Digital Services Terms">
+    <LegalPageLayout title="Terms of Service">
       <TermsOfServiceContent />
     </LegalPageLayout>
   );

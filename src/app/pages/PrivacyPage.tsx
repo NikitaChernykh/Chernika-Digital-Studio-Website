@@ -3,7 +3,7 @@ import { PrivacyPolicyContent } from "../components/legal/PrivacyPolicyContent";
 
 export function PrivacyPage() {
   return (
-    <LegalPageLayout title="Chernika Digital Services Privacy Policy">
+    <LegalPageLayout title="Privacy Policy">
       <PrivacyPolicyContent />
     </LegalPageLayout>
   );
